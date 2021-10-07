@@ -1,0 +1,51 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #242f3f;
+}
+
+.loader-wrapper {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #242f3f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.loader {
+	display: inline-block;
+	background-image: url('./eth.png');
+	background-repeat: no-repeat;
+	background-origin: border-box;
+	background-position: center;
+	background-size: cover;
+	width: 500px;
+	height: 500px;
+	position: relative;
+	animation-name: ethSymbol;
+	animation-duration: 3.5s;
+	/* animation: loader 2s infinite ease; */
+}
+
+@keyframes ethSymbol {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0.3;
+	}
+	50% {
+		opacity: 0.1;
+	}
+	75% {
+		opacity: 0.3;
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
