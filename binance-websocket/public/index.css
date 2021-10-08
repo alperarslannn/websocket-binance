@@ -49,3 +49,15 @@ body {
 		transform: rotate(360deg);
 	}
 }
+
+#root {
+	width: 90%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.chart {
+	height: 60vh;
+	width: 100%;
+	margin-top: 10vh;
+}

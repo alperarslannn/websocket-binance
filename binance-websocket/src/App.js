@@ -21,7 +21,7 @@ function App() {
 				);
 				conn.onmessage = async function (e) {
 					let data1 = JSON.parse(e.data);
-					console.log(data1);
+					// console.log(data1);
 					if (data1.data === undefined) {
 						return;
 					} else {

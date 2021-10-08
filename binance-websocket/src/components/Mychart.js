@@ -5,8 +5,18 @@ const Mychart = ({ etherium, labelChart }) => {
 	const optionsLineChart = {
 		// line_chart_attribute: {},
 		// animation: { duration: 1800 },
+		maintainAspectRatio: false,
 		elements: { point: { radius: 4, hitRadius: 10 } },
 		plugins: {
+			title: {
+				display: true,
+				padding: 50,
+				color: 'white',
+				text: 'Live Etherium Price',
+				font: {
+					size: 25,
+				},
+			},
 			//options.plugins.legend
 			legend: {
 				display: true,
@@ -29,7 +39,11 @@ const Mychart = ({ etherium, labelChart }) => {
 		},
 		scales: {
 			y: {
+				grid: {
+					color: 'rgb(71, 70, 70)',
+				},
 				ticks: {
+					precision: 1,
 					color: 'white',
 
 					// Include a dollar sign in the ticks
@@ -77,8 +91,6 @@ const Mychart = ({ etherium, labelChart }) => {
 					],
 				}}
 				options={optionsLineChart}
-				height={200}
-				width={600}
 			/>
 		</div>
 	);
