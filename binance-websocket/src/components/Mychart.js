@@ -3,8 +3,6 @@ import { Line } from 'react-chartjs-2';
 
 const Mychart = ({ etherium, labelChart }) => {
 	const optionsLineChart = {
-		// line_chart_attribute: {},
-		// animation: { duration: 1800 },
 		maintainAspectRatio: false,
 		elements: { point: { radius: 4, hitRadius: 10 } },
 		plugins: {
@@ -17,7 +15,6 @@ const Mychart = ({ etherium, labelChart }) => {
 					size: 25,
 				},
 			},
-			//options.plugins.legend
 			legend: {
 				display: true,
 				labels: {
@@ -45,9 +42,9 @@ const Mychart = ({ etherium, labelChart }) => {
 				ticks: {
 					precision: 1,
 					color: 'white',
+					
 
-					// Include a dollar sign in the ticks
-
+					// Including a dollar sign in the ticks
 					callback: function (value) {
 						return '$ ' + value;
 					},
@@ -58,15 +55,16 @@ const Mychart = ({ etherium, labelChart }) => {
 					display: false,
 				},
 				ticks: {
+					font: {
+						size: window.innerWidth > 600 ? 12 : 10	,
+					},
 					color: 'white',
-					// For a category axis, the val is the index so the lookup via getLabelForValue is needed
 					callback: function (val, index) {
 						// Hide the label of every 2nd dataset
 						return index % 2 === 0
 							? this.getLabelForValue(val)
 							: '';
 					},
-					//color: 'red',
 				},
 			},
 		},
@@ -75,7 +73,7 @@ const Mychart = ({ etherium, labelChart }) => {
 		<div className='chart'>
 			<Line
 				data={{
-					labels: labelChart[0],
+					labels: labelChart,
 					datasets: [
 						{
 							label: 'Etherium Price',
