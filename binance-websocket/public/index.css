@@ -1,8 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	width: 100vw;
-	height: 100vh;
+	box-sizing: border-box;
 	background-color: #242f3f;
 }
 
@@ -29,7 +28,6 @@ body {
 	position: relative;
 	animation-name: ethSymbol;
 	animation-duration: 3.5s;
-	/* animation: loader 2s infinite ease; */
 }
 
 @keyframes ethSymbol {
@@ -57,7 +55,10 @@ body {
 }
 
 .chart {
+	min-width: 300px;
+	min-height: 300px;
 	height: 60vh;
 	width: 100%;
 	margin-top: 10vh;
 }
+

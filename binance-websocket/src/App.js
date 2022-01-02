@@ -6,6 +6,7 @@ function App() {
 	const [etherium, setEtherium] = useState([]);
 	const [labelChart, setLabelChart] = useState([]);
 
+	//Subscription with Binance WS
 	useEffect(() => {
 		let etheriumObj = [];
 		let labelss = [];
@@ -19,16 +20,14 @@ function App() {
 						id: 1,
 					})
 				);
-				conn.onmessage = async function (e) {
+				conn.onmessage = function (e) {
 					let data1 = JSON.parse(e.data);
-					// console.log(data1);
 					if (data1.data === undefined) {
 						return;
 					} else {
 						data1.data.map((coin) => {
 							if (coin.s === 'ETHUSDT') {
 								etheriumObj.push(parseFloat(coin.c).toFixed(1));
-								//console.log(etheriumObj);
 								labelss.push([
 									`${new Date().toLocaleDateString('tr-TR')}`,
 									`${new Date().getHours()}:${new Date()
@@ -43,20 +42,17 @@ function App() {
 						});
 					}
 
-					if (etheriumObj.length > 50) {
-						// console.log('bye');
+					if (etheriumObj.length > 30) {
 						etheriumObj.shift();
 						labelss.shift();
 					}
-					await setLabelChart((prevState) => {
-						return [labelss];
+					setLabelChart((prevState) => {
+						return [...labelss];
 					});
-					await setEtherium((prevState) => {
+					setEtherium((prevState) => {
 						return [etheriumObj];
 					});
 
-					// console.log(etheriumObj);
-					// console.log(labelss);
 				};
 			};
 		};
@@ -66,8 +62,6 @@ function App() {
 	return (
 		<div className='App'>
 			<Mychart etherium={etherium} labelChart={labelChart} />
-
-			{/* {JSON.stringify(etherium)} */}
 		</div>
 	);
 }

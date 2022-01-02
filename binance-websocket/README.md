@@ -1,3 +1,9 @@
+# Project Description
+
+This project is made to understand to basics of websocket with the help of Binance-WS. It is a simple project made to understand how the subscription works and how to visualize the data with React-Chart-js. There exists a loading screen which is made to complete the subcription event for the first time.
+
+You can find the application fully functional in the link: https://websocket-binance.vercel.app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
